@@ -23,7 +23,10 @@ set_defaults("executable") {
   configs = _shared_binary_target_configs
 
   # Executables get this additional configuration.
+  if(current_os != "mac") {
   configs += [ "//build:executable_ldconfig" ]
+  }
+ 
 }
 set_defaults("static_library") {
   configs = _shared_binary_target_configs
@@ -35,4 +38,8 @@ set_defaults("source_set") {
   configs = _shared_binary_target_configs
 }
 
-set_default_toolchain("//build/toolchain:gcc")
+if(current_os == "mac") {
+  set_default_toolchain("//build/toolchain:gcc-darwin")
+} else {
+  set_default_toolchain("//build/toolchain:gcc")
+}
