@@ -1,0 +1,5 @@
+language: cpp
+os: osx
+osx_image: xcode8
+script: bash build.sh
+
