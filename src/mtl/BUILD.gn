@@ -1,0 +1,14 @@
+# Copyright 2014 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+executable("mtl") {
+  sources = [
+    "mergeTwoLists.cpp",
+  ]
+
+  cflags_cc = ["-g","-Wall","-Wextra", "-pthread","-std=c++11"]
+  deps = [
+   "//third_part/googletest/googletest:gtest"
+  ]
+}
