@@ -1,5 +1,6 @@
 group("gn_all") {
   deps = [
     "//src/hello/",
+    "//src/mtl",
   ]
 } 
