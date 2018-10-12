@@ -1,0 +1,23 @@
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
+cc_library(
+    name = "libhello_static",
+    srcs = ["hello_static.cc"],
+    hdrs = ["hello_static.h"],
+    linkstatic = True
+)
+
+cc_library(
+    name = "libhello_shared",
+    srcs = ["hello_shared.cc"],
+    hdrs = ["hello_shared.h"],
+    linkstatic = False
+)
+
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary
+cc_binary(
+    name = "hello",
+    srcs = ["hello.cc"],
+    copts = [],
+    deps = ["libhello_shared", "libhello_static"],
+)
